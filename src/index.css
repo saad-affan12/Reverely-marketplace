@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+
+    /* REVERSELY Design Tokens */
+    --bg-deep: #050816;
+    --bg-base: #070A19;
+    --bg-elevated: #0B1020;
+
+    --surface-card: #0F1428;
+    --surface-input: #131A32;
+    --surface-hover: #18203A;
+
+    --primary: #5B37F5;
+    --primary-hover: #704FFF;
+    --secondary: #6B8CFF;
+    --accent: #48CBFF;
+
+    --status-success: #2BD696;
+    --status-warning: #FAB505;
+    --status-danger: #FF5677;
+
+    --text-primary: #F5F7FF;
+    --text-secondary: #9DA9C6;
+    --text-muted: #6F7D9C;
+
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-hover: rgba(255, 255, 255, 0.16);
+  }
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono);
+}
+
+/* Custom Dark Editorial Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: #18203A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5B37F5;
+}
+
+/* Background Grids & Radial Lights */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(91, 55, 245, 0.18) 0%, rgba(5, 8, 22, 0) 75%);
+}
+
+.bg-radial-subtle {
+  background: radial-gradient(circle at 80% 20%, rgba(72, 203, 255, 0.08) 0%, transparent 60%);
+}
+
+/* Text Gradients */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef08a 0%, #fab505 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #6f7d9c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-indigo {
+  background: linear-gradient(135deg, #ffffff 0%, #6b8cff 60%, #5b37f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Card Utilities */
+.glass-card {
+  background: rgba(15, 20, 40, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(24, 32, 58, 0.85);
+  border-color: rgba(91, 55, 245, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+}
+
+/* Oversized Editorial Background Typography */
+.editorial-bg-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 0.85;
+  white-space: nowrap;
+}
+
+.editorial-stroke-text {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+  color: transparent;
+  pointer-events: none;
+  user-select: none;
+}
+
+.editorial-stroke-text-visible {
+  -webkit-text-stroke: 1px rgba(91, 55, 245, 0.35);
+  color: transparent;
+}
+
+/* Glow effects */
+.glow-indigo {
+  box-shadow: 0 0 50px -10px rgba(91, 55, 245, 0.35);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 50px -10px rgba(43, 214, 150, 0.35);
+}
