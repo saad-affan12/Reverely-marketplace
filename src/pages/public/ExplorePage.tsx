@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Layers, ShoppingBag, Sparkles } from 'lucide-react';
 import { useRequirementStore } from '../../stores/useRequirementStore';
 import { useProductStore } from '../../stores/useProductStore';
@@ -9,12 +9,17 @@ import { PageContainer } from '../../components/layout/PageContainer';
 import { PageHero } from '../../components/layout/PageHero';
 
 export const ExplorePage: React.FC = () => {
-  const { requirements } = useRequirementStore();
-  const { products } = useProductStore();
+  const { requirements, fetchRequirements } = useRequirementStore();
+  const { products, fetchProducts } = useProductStore();
 
   const [activeTab, setActiveTab] = useState<'requirements' | 'products'>('requirements');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  useEffect(() => {
+    fetchRequirements();
+    fetchProducts();
+  }, [fetchRequirements, fetchProducts]);
 
   const categories = [
     { label: 'All Categories', value: 'all' },

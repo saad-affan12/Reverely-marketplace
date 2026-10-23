@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useOrderStore } from '../../stores/useOrderStore';
 import { Card, Button, StatusBadge, Input, DataTable } from '../../components/ui';
@@ -7,8 +7,12 @@ import { PageContainer } from '../../components/layout/PageContainer';
 import { PageHero } from '../../components/layout/PageHero';
 
 export const CustomerOrdersPage: React.FC = () => {
-  const orders = useOrderStore((state) => state.orders);
+  const { orders, fetchOrders } = useOrderStore();
   const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders]);
 
   const filtered = orders.filter((o) =>
     o.title.toLowerCase().includes(search.toLowerCase()) ||

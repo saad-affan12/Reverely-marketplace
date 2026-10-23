@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRequirementStore } from '../../stores/useRequirementStore';
 import { Card, Button, StatusBadge, Input, Select, EmptyState } from '../../components/ui';
@@ -7,9 +7,13 @@ import { PageContainer } from '../../components/layout/PageContainer';
 import { PageHero } from '../../components/layout/PageHero';
 
 export const CustomerRequirementsPage: React.FC = () => {
-  const requirements = useRequirementStore((state) => state.requirements);
+  const { requirements, fetchRequirements } = useRequirementStore();
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
+
+  useEffect(() => {
+    fetchRequirements();
+  }, [fetchRequirements]);
 
   const filtered = requirements.filter((r) => {
     const matchesSearch = r.title.toLowerCase().includes(search.toLowerCase()) || r.category.toLowerCase().includes(search.toLowerCase());

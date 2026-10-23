@@ -1,46 +1,79 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { User, UserRole } from '../types';
+import { authApi } from '../services/api/authApi';
 import { mockUsers } from '../mock/seedData';
 
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
+  token: string | null;
   login: (email: string, role?: UserRole) => Promise<boolean>;
-  switchDemoRole: (role: UserRole) => void;
-  logout: () => void;
+  register: (data: { name: string; email: string; password?: string; role: UserRole; companyName?: string }) => Promise<boolean>;
+  switchDemoRole: (role: UserRole) => Promise<void>;
+  logout: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      // Default to Customer Saad for easy instant testing
       user: mockUsers[0],
       isAuthenticated: true,
+      token: null,
 
       login: async (email: string, role?: UserRole) => {
-        const found = mockUsers.find(
-          (u) => u.email.toLowerCase() === email.toLowerCase() && (!role || u.role === role)
-        );
-        if (found) {
-          set({ user: found, isAuthenticated: true });
-          return true;
+        try {
+          const res = await authApi.login(email, role);
+          if (res.data?.user) {
+            set({
+              user: res.data.user,
+              token: res.data.token,
+              isAuthenticated: true,
+            });
+            return true;
+          }
+          return false;
+        } catch {
+          return false;
         }
-        // Fallback for demo emails
-        let demoUser = mockUsers[0];
-        if (email.includes('vendor')) demoUser = mockUsers[1];
-        if (email.includes('admin')) demoUser = mockUsers[3];
-        set({ user: demoUser, isAuthenticated: true });
-        return true;
       },
 
-      switchDemoRole: (role: UserRole) => {
-        const targetUser = mockUsers.find((u) => u.role === role) || mockUsers[0];
-        set({ user: targetUser, isAuthenticated: true });
+      register: async (data) => {
+        try {
+          const res = await authApi.register(data);
+          if (res.data?.user) {
+            set({
+              user: res.data.user,
+              token: res.data.token,
+              isAuthenticated: true,
+            });
+            return true;
+          }
+          return false;
+        } catch {
+          return false;
+        }
       },
 
-      logout: () => {
-        set({ user: null, isAuthenticated: false });
+      switchDemoRole: async (role: UserRole) => {
+        try {
+          const res = await authApi.getDemoUser(role);
+          if (res.data?.user) {
+            set({
+              user: res.data.user,
+              token: res.data.token,
+              isAuthenticated: true,
+            });
+          }
+        } catch {
+          const fallback = mockUsers.find((u) => u.role === role) || mockUsers[0];
+          set({ user: fallback, isAuthenticated: true });
+        }
+      },
+
+      logout: async () => {
+        await authApi.logout();
+        set({ user: null, token: null, isAuthenticated: false });
       },
     }),
     {

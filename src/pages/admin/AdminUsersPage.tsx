@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShieldCheck, CheckCircle, XCircle, Mail, Building2, Users, Store, User as UserIcon } from 'lucide-react';
 import { mockUsers } from '../../mock/seedData';
 import { User } from '../../types';
 import { Button, Badge, Toast } from '../../components/ui';
 import { AdminLayout } from '../../components/admin/AdminLayout';
 import { AdminDataTable, Column } from '../../components/admin/AdminDataTable';
+import { adminApi } from '../../services/api/adminApi';
 
 export const AdminUsersPage: React.FC = () => {
   const [usersList, setUsersList] = useState<User[]>(mockUsers);
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    adminApi.getUsers().then((res) => {
+      if (res.data && res.data.length > 0) {
+        setUsersList(res.data);
+      }
+    }).catch(() => {});
+  }, []);
 
   const toggleVerification = (userId: string) => {
     setUsersList((prev) =>
@@ -25,6 +34,7 @@ export const AdminUsersPage: React.FC = () => {
         return u;
       })
     );
+    adminApi.toggleUserVerification(userId).catch(() => {});
   };
 
   const filteredUsers = usersList.filter((u) => {

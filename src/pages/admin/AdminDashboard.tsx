@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Users,
@@ -25,6 +25,7 @@ import { AdminLayout } from '../../components/admin/AdminLayout';
 import { AdminDataTable, Column } from '../../components/admin/AdminDataTable';
 import { AdminOrderAuditModal } from '../../components/admin/AdminOrderAuditModal';
 import { Order } from '../../types';
+import { adminApi, AdminStats } from '../../services/api/adminApi';
 
 export const AdminDashboard: React.FC = () => {
   const { requirements } = useRequirementStore();
@@ -36,11 +37,18 @@ export const AdminDashboard: React.FC = () => {
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const [orderSearch, setOrderSearch] = useState('');
   const [orderStatusFilter, setOrderStatusFilter] = useState('all');
+  const [liveStats, setLiveStats] = useState<AdminStats | null>(null);
 
-  const customersCount = mockUsers.filter((u) => u.role === 'customer').length;
-  const vendorsCount = mockUsers.filter((u) => u.role === 'vendor').length;
+  useEffect(() => {
+    adminApi.getStats().then((res) => {
+      if (res.data) setLiveStats(res.data);
+    }).catch(() => {});
+  }, []);
 
-  const totalGMV = orders.reduce((sum, o) => sum + o.totalAmount, 0);
+  const customersCount = liveStats ? liveStats.totalCustomers : mockUsers.filter((u) => u.role === 'customer').length;
+  const vendorsCount = liveStats ? liveStats.totalVendors : mockUsers.filter((u) => u.role === 'vendor').length;
+
+  const totalGMV = liveStats ? liveStats.totalRevenue : orders.reduce((sum, o) => sum + o.totalAmount, 0);
 
   const openReqsCount = requirements.filter((r) => r.status === 'open').length;
   const fulfilledReqsCount = requirements.filter((r) => r.status === 'fulfilled').length;

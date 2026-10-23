@@ -4,9 +4,12 @@ import { Offer } from '../types';
 import { mockOffers } from '../mock/seedData';
 import { useRequirementStore } from './useRequirementStore';
 import { useOrderStore } from './useOrderStore';
+import { offersApi } from '../services/api/offersApi';
 
 interface OfferState {
   offers: Offer[];
+  isLoading: boolean;
+  fetchOffersByRequirementId: (reqId: string) => Promise<void>;
   submitOffer: (offerData: Omit<Offer, 'id' | 'createdAt' | 'status'>) => Offer;
   acceptOffer: (offerId: string) => { offer: Offer; orderId?: string } | null;
   getOffersByRequirementId: (reqId: string) => Offer[];
@@ -17,6 +20,24 @@ export const useOfferStore = create<OfferState>()(
   persist(
     (set, get) => ({
       offers: mockOffers,
+      isLoading: false,
+
+      fetchOffersByRequirementId: async (reqId: string) => {
+        set({ isLoading: true });
+        try {
+          const res = await offersApi.getOffersByRequirementId(reqId);
+          if (res.data && res.data.length > 0) {
+            set((state) => {
+              const otherOffers = state.offers.filter((o) => o.requirementId !== reqId);
+              return { offers: [...otherOffers, ...res.data], isLoading: false };
+            });
+          } else {
+            set({ isLoading: false });
+          }
+        } catch {
+          set({ isLoading: false });
+        }
+      },
 
       submitOffer: (offerData) => {
         const newOffer: Offer = {
@@ -30,8 +51,20 @@ export const useOfferStore = create<OfferState>()(
           offers: [newOffer, ...state.offers],
         }));
 
-        // Increment offers count on the requirement
         useRequirementStore.getState().incrementOffersCount(offerData.requirementId);
+
+        // Background API sync
+        offersApi.submitOffer(offerData).then((res) => {
+          if (res.data?.id && res.data.id !== newOffer.id) {
+            set((state) => ({
+              offers: state.offers.map((o) =>
+                o.id === newOffer.id ? res.data : o
+              ),
+            }));
+          }
+        }).catch(() => {
+          // Keep local optimistic offer
+        });
 
         return newOffer;
       },
@@ -64,6 +97,11 @@ export const useOfferStore = create<OfferState>()(
           const newOrder = orderStore.createOrderFromOffer(targetOffer, req);
           createdOrderId = newOrder.id;
         }
+
+        // Background API sync
+        offersApi.acceptOffer(offerId).catch(() => {
+          // Keep local optimistic order
+        });
 
         return { offer: { ...targetOffer, status: 'accepted' }, orderId: createdOrderId };
       },

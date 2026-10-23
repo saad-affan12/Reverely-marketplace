@@ -5,8 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:all": "concurrently -n BACKEND,FRONTEND -c cyan,magenta \"npm run server\" \"npm run dev\"",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "npm --prefix backend start",
+    "server:dev": "npm --prefix backend run dev",
+    "server:seed": "npm --prefix backend run seed",
+    "db:users": "node backend/src/scripts/showData.js users",
+    "db:reqs": "node backend/src/scripts/showData.js requirements",
+    "db:offers": "node backend/src/scripts/showData.js offers",
+    "db:orders": "node backend/src/scripts/showData.js orders",
+    "db:all": "node backend/src/scripts/showData.js all",
+    "test:backend": "npm --prefix backend test"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -25,6 +35,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^10.0.6",
     "tailwindcss": "^4.0.5",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"

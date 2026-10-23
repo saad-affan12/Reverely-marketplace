@@ -2,11 +2,14 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Order, OrderStatus, OrderTimelineItem, Offer, Requirement } from '../types';
 import { mockOrders } from '../mock/seedData';
+import { ordersApi } from '../services/api/ordersApi';
 
 interface OrderState {
   orders: Order[];
+  isLoading: boolean;
+  fetchOrders: () => Promise<void>;
   createOrderFromOffer: (offer: Offer, requirement: Requirement) => Order;
-  updateOrderStatus: (orderId: string, status: OrderStatus) => void;
+  updateOrderStatus: (orderId: string, status: OrderStatus) => Promise<void>;
   getOrderById: (id: string) => Order | undefined;
 }
 
@@ -14,11 +17,26 @@ export const useOrderStore = create<OrderState>()(
   persist(
     (set, get) => ({
       orders: mockOrders,
+      isLoading: false,
+
+      fetchOrders: async () => {
+        set({ isLoading: true });
+        try {
+          const res = await ordersApi.getOrders();
+          if (res.data && res.data.length > 0) {
+            set({ orders: res.data, isLoading: false });
+          } else {
+            set({ isLoading: false });
+          }
+        } catch {
+          set({ isLoading: false });
+        }
+      },
 
       createOrderFromOffer: (offer, requirement) => {
         const today = new Date();
         const expectedDate = new Date(today);
-        expectedDate.setDate(today.getDate() + offer.deliveryDays);
+        expectedDate.setDate(today.getDate() + (offer.deliveryDays || 5));
         const dateFormatted = expectedDate.toLocaleDateString('en-US', {
           month: 'short',
           day: 'numeric',
@@ -87,7 +105,7 @@ export const useOrderStore = create<OrderState>()(
         return newOrder;
       },
 
-      updateOrderStatus: (orderId, status) => {
+      updateOrderStatus: async (orderId, status) => {
         set((state) => ({
           orders: state.orders.map((ord) => {
             if (ord.id !== orderId) return ord;
@@ -109,9 +127,10 @@ export const useOrderStore = create<OrderState>()(
                 return {
                   ...item,
                   completed: true,
-                  timestamp: item.timestamp === 'Pending' || item.timestamp === 'In Progress'
-                    ? new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                    : item.timestamp,
+                  timestamp:
+                    item.timestamp === 'Pending' || item.timestamp === 'In Progress'
+                      ? new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                      : item.timestamp,
                 };
               }
               return item;
@@ -124,6 +143,13 @@ export const useOrderStore = create<OrderState>()(
             };
           }),
         }));
+
+        // Background API sync
+        try {
+          await ordersApi.updateOrderStatus(orderId, status);
+        } catch {
+          // Keep local state
+        }
       },
 
       getOrderById: (id) => {

@@ -13,7 +13,7 @@ import { EditorialBackgroundText } from '../../components/layout/EditorialBackgr
 
 export const Register: React.FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuthStore();
+  const { register } = useAuthStore();
 
   const [role, setRole] = useState<UserRole>('customer');
   const [name, setName] = useState('');
@@ -39,11 +39,22 @@ export const Register: React.FC = () => {
 
     setIsLoading(true);
     try {
-      await login(email, role);
-      if (role === 'customer') {
-        navigate('/customer/dashboard');
+      const success = await register({
+        name,
+        email,
+        password,
+        role,
+        companyName: role === 'vendor' ? companyName : undefined,
+      });
+
+      if (success) {
+        if (role === 'customer') {
+          navigate('/customer/dashboard');
+        } else {
+          navigate('/vendor/dashboard');
+        }
       } else {
-        navigate('/vendor/dashboard');
+        setError('Failed to create account. Email may already be registered.');
       }
     } catch {
       setError('Failed to create account');

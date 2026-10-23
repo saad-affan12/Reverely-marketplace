@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useOrderStore } from '../../stores/useOrderStore';
 import { Card, Button, StatusBadge } from '../../components/ui';
@@ -6,7 +6,11 @@ import { PageContainer, PageHero } from '../../components/layout';
 import { Package, Truck, ArrowRight, User } from 'lucide-react';
 
 export const VendorOrdersPage: React.FC = () => {
-  const orders = useOrderStore((state) => state.orders);
+  const { orders, fetchOrders } = useOrderStore();
+
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {

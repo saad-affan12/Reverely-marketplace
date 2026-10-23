@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRightLeft, Filter, Sparkles } from 'lucide-react';
 import { useRequirementStore } from '../../stores/useRequirementStore';
@@ -14,7 +14,13 @@ export const OffersPage: React.FC = () => {
   const navigate = useNavigate();
 
   const { getRequirementById } = useRequirementStore();
-  const { getOffersByRequirementId, acceptOffer } = useOfferStore();
+  const { getOffersByRequirementId, fetchOffersByRequirementId, acceptOffer } = useOfferStore();
+
+  useEffect(() => {
+    if (id) {
+      fetchOffersByRequirementId(id);
+    }
+  }, [id, fetchOffersByRequirementId]);
 
   const requirement = id ? getRequirementById(id) : undefined;
   const rawOffers = id ? getOffersByRequirementId(id) : [];

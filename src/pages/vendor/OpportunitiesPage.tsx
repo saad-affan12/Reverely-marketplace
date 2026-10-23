@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Search,
@@ -20,9 +20,13 @@ import { FadeIn, SlideUp } from '../../components/motion/MotionPrimitives';
 
 export const OpportunitiesPage: React.FC = () => {
   const navigate = useNavigate();
-  const { requirements } = useRequirementStore();
+  const { requirements, fetchRequirements } = useRequirementStore();
 
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    fetchRequirements();
+  }, [fetchRequirements]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedBudget, setSelectedBudget] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
