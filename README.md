@@ -1,23 +1,39 @@
-# ⚡ Reversely — Reverse & Traditional Multi-Vendor Marketplace (MERN Stack)
+# ⚡ REVERSELY — Reverse & Traditional Multi-Vendor Marketplace (MERN Stack)
 
 <div align="center">
 
 ![Reversely Banner](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80)
 
-[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-v20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.21-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose_8.10-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![Live Frontend](https://img.shields.io/badge/Frontend-Live_on_Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://reversely-marketplace.vercel.app)
+[![Live Backend](https://img.shields.io/badge/Backend-Live_on_Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://reverely-marketplace.onrender.com)
+[![API Health](https://img.shields.io/badge/API_Health-Passing_200_OK-2BD696?style=for-the-badge&logo=statuspal&logoColor=white)](https://reverely-marketplace.onrender.com/api/health)
+[![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas_Cloud_Cluster-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
 
-**A high-performance, full-stack hybrid reverse multi-vendor marketplace where buyers post requirements and verified suppliers compete with tailored bids.**
+<br/>
 
-*Tagline: Don't search. Let vendors come to you.*
+[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v20+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.21-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
-[Live Demo](#-getting-started) • [Core Concept](#-the-reverse-marketplace-concept) • [Role Workflows](#-role-based-workflows) • [Full-Stack Architecture](#️-architecture--tech-stack) • [API Documentation](#-api-endpoint-reference) • [Deployment](#-deployment-guide)
+### **A production-ready, full-stack hybrid reverse marketplace where buyers post requests and verified vendors compete with tailored bids.**
+
+*Tagline: "Don't search catalogs. Let suppliers compete for your business."*
+
+---
+
+### 🌐 **Live Cloud Deployment Links**
+
+| Service | Host | Status | Direct Link |
+| :--- | :--- | :---: | :--- |
+| **Frontend Web App** | **Vercel** | ![Status](https://img.shields.io/badge/Active-success?style=flat-square) | [https://reversely-marketplace.vercel.app](https://reversely-marketplace.vercel.app) |
+| **RESTful API Server** | **Render** | ![Status](https://img.shields.io/badge/Active-success?style=flat-square) | [https://reverely-marketplace.onrender.com](https://reverely-marketplace.onrender.com) |
+| **API Health Status** | **Render** | ![Status](https://img.shields.io/badge/200_OK-success?style=flat-square) | [https://reverely-marketplace.onrender.com/api/health](https://reverely-marketplace.onrender.com/api/health) |
+| **Database Cluster** | **MongoDB Atlas** | ![Status](https://img.shields.io/badge/ReplicaSet-AWS_AP_South_1-success?style=flat-square) | [MongoDB Atlas Cluster0](https://cloud.mongodb.com) |
+| **Source Code** | **GitHub** | ![Status](https://img.shields.io/badge/Public_Repo-main-blue?style=flat-square) | [saad-affan12/Reverely-marketplace](https://github.com/saad-affan12/Reverely-marketplace) |
 
 </div>
 
@@ -25,426 +41,331 @@
 
 ## 📖 Table of Contents
 
-- [Overview & Objectives](#-overview)
-- [The Reverse Marketplace Concept](#-the-reverse-marketplace-concept)
-- [Key Features](#-key-features)
-- [Role-Based Workflows](#-role-based-workflows)
-  - [👤 Customer Experience](#1--customer-experience)
-  - [🏢 Vendor Experience](#2--vendor-experience)
-  - [🛡️ Admin Oversight](#3-️-admin-oversight)
-- [Architecture & Tech Stack](#-architecture--tech-stack)
-  - [Full-Stack Architecture Diagram](#full-stack-architecture-diagram)
-  - [Directory Structure](#directory-structure)
-  - [Database Schemas & Mongoose Models](#database-schemas--mongoose-models)
-- [Getting Started (Local Development)](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Environment Variables](#environment-variables)
-  - [Database Seeding](#database-seeding)
-  - [Running Frontend & Backend](#running-the-application)
-- [API Endpoint Reference](#-api-endpoint-reference)
-- [Testing & Quality Assurance](#-testing--quality-assurance)
-- [Deployment Guide (Render / Node.js + Vercel)](#-deployment-guide)
-- [Design System & Aesthetics](#-design-system--aesthetics)
-- [Limitations & Future Roadmap](#-limitations--future-roadmap)
-- [License](#-license)
+- [⚡ Project Overview](#-project-overview)
+- [🔄 The Reverse Marketplace Paradigm](#-the-reverse-marketplace-paradigm)
+- [👥 Role-Based Workflows](#-role-based-workflows)
+  - [1. Buyer / Customer](#1-buyer--customer-flow)
+  - [2. Supplier / Vendor](#2-supplier--vendor-flow)
+  - [3. Platform Administrator](#3-platform-administrator)
+- [🔑 Demo Accounts & Credentials](#-demo-accounts--credentials)
+- [🏗️ Full-Stack System Architecture](#️-full-stack-system-architecture)
+- [📊 Database Models & Schemas](#-database-models--schemas)
+- [💻 Terminal Database Inspection CLI](#-terminal-database-inspection-cli)
+- [🚀 Local Development Setup](#-local-development-setup)
+- [📡 API Endpoint Reference](#-api-endpoint-reference)
+- [🧪 Testing & Quality Assurance](#-testing--quality-assurance)
+- [☁️ Cloud Deployment Configuration](#️-cloud-deployment-configuration)
+- [🎨 Design System & Dark Tech Aesthetics](#-design-system--dark-tech-aesthetics)
+- [📄 License](#-license)
 
 ---
 
-## 🌟 Overview
+## ⚡ Project Overview
 
-In traditional e-commerce, customers spend countless hours browsing rigid catalogs, comparing disparate sellers, and negotiating custom quotes offline.
+In traditional e-commerce, buyers waste hours scrolling through static catalogs, comparing disparate suppliers, and manually negotiating prices. 
 
-**REVERSELY** flips procurement and commerce on its head with a **Reverse RFP (Request for Proposal) Engine**:
-1. Customers define *what* they need, *quantity*, *specifications*, *budget range*, and *deadline*.
-2. Verified vendors discover these requirements as business opportunities and submit tailored, competitive bids.
-3. Customers compare bids side-by-side using an intelligent match score matrix and accept the best quotation with one click.
-4. The system automatically creates an order with a **visual 6-stage lifecycle tracker**.
-5. Simultaneously, Reversely preserves standard direct-to-consumer browsing for off-the-shelf catalog products.
+**REVERSELY** reverses this dynamic completely with a **Smart RFP (Request for Proposal) Engine**:
+1. **Buyers** publish procurement requirements with specific quantities, budget ceilings, custom specifications, and delivery deadlines.
+2. **Vendors** receive real-time notifications of matching opportunities and submit binding commercial quotations with prices, delivery timetables, and warranty terms.
+3. **Buyers** compare competing quotes side-by-side using an intelligent match score matrix and accept the optimal bid with a single click.
+4. **Order Fulfillment** is tracked end-to-end through a transparent **6-stage lifecycle tracking pipeline**.
 
 ---
 
-## 🔄 The Reverse Marketplace Concept
+## 🔄 The Reverse Marketplace Paradigm
 
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Buyer as 👤 Buyer (Customer)
+    participant Platform as ⚡ REVERSELY Engine
+    actor VendorA as 🏢 Vendor A (Apex)
+    actor VendorB as 🏢 Vendor B (QuickBuild)
+    participant DB as 🍃 MongoDB Atlas
+
+    Buyer->>Platform: Posts Requirement (100 Hoodies, ₹30,000 budget, 7 days)
+    Platform->>DB: Save Requirement (status: "OPEN", bids: 0)
+    Platform-->>VendorA: RFP Notification: Apparel Opportunity
+    Platform-->>VendorB: RFP Notification: Apparel Opportunity
+
+    VendorA->>Platform: Submits Quote (₹27,500, 4 days delivery)
+    Platform->>DB: Save Offer A & Increment bids count
+    VendorB->>Platform: Submits Quote (₹25,900, 6 days delivery)
+    Platform->>DB: Save Offer B & Increment bids count
+
+    Buyer->>Platform: Reviews Comparison Matrix
+    Buyer->>Platform: Accepts Vendor A's Quote
+    Platform->>DB: [Atomic Transaction]
+    Note over Platform,DB: 1. Offer A -> ACCEPTED<br/>2. Competing Offer B -> REJECTED<br/>3. Requirement -> FULFILLED<br/>4. New Order Created (6-Stage Lifecycle)
+    Platform-->>VendorA: Order Confirmation & Notification
+    Platform-->>Buyer: Order Tracking ID & Dashboard Updated
 ```
-┌─────────────────────────┐
-│   1. CUSTOMER POSTS     │ ──> Title, Category, Quantity, Budget Range,
-│      REQUIREMENT        │     Delivery Location, Deadline & Custom Specs
-└───────────┬─────────────┘
-            │
-            ▼
-┌─────────────────────────┐
-│   2. VENDORS DISCOVER   │ ──> Filter opportunities by category, budget & match score;
-│      OPPORTUNITIES      │     Analyze project specs & customer timeline
-└───────────┬─────────────┘
-            │
-            ▼
-┌─────────────────────────┐
-│   3. VENDORS SUBMIT     │ ──> Quote tailored pricing, delivery estimate,
-│      COMPETITIVE QUOTES │     warranty & included value-add services
-└───────────┬─────────────┘
-            │
-            ▼
-┌─────────────────────────┐
-│   4. COMPARE & ACCEPT   │ ──> Side-by-side matrix comparison with Best Value,
-│      OFFERS             │     Fastest Delivery, and Top Rated algorithmic badges
-└───────────┬─────────────┘
-            │
-            ▼
-┌─────────────────────────┐
-│   5. 6-STAGE ORDER      │ ──> Requirement Accepted ➔ Confirmed ➔ Processing ➔
-│      LIFECYCLE TRACKING │     Packed ➔ Shipped ➔ Delivered
-└─────────────────────────┘
-```
-
----
-
-## ✨ Key Features
-
-### 🎯 Reverse Commerce Engine
-- **4-Step Requirement Wizard**: Intuitive step-by-step form (General Info → Quantity & Budget → Delivery & Timeline → Technical Specifications) with real-time sticky summary sidebar.
-- **Dynamic Quotation Builder**: Vendors formulate competitive bids with instant visual feedback against the customer's target budget.
-- **Side-by-Side Offer Comparison**: Compare multiple bids simultaneously across total price, warranty, delivery speed, trust score, and included services.
-- **One-Click Atomic Acceptance**: Accepting an offer marks competing offers as rejected, updates the requirement to `fulfilled`, and generates an `Order`.
-
-### 📦 6-Stage Visual Order Stepper
-- `requirement_accepted` ➔ `confirmed` ➔ `processing` ➔ `packed` ➔ `shipped` ➔ `delivered`.
-- Authorized vendors can advance fulfillment stages with real-time persistence in MongoDB.
-
-### 🛡️ Role-Based Access Control (RBAC)
-- Strict separation of customer, vendor, and admin capabilities.
-- Public registration restricts administrative creation.
 
 ---
 
 ## 👥 Role-Based Workflows
 
-### 1. 👤 Customer Experience
-- **Post RFP Requirements**: Fill in specifications, budget ranges, and required delivery dates.
-- **Manage Active Inquiries**: Monitor quotation counts and vendor engagement in real-time.
-- **Compare & Accept**: Evaluate proposals side-by-side and accept the optimal bid.
-- **Track Orders**: Follow shipment and delivery milestones.
-- **Review Suppliers**: Rate delivered orders.
+### 1. Buyer / Customer Flow
+- **Post Requirement**: Multi-step RFP composer specifying category, volume, budget limit, and required delivery date.
+- **Quote Comparison**: Real-time side-by-side grid evaluating vendor price, delivery speed, and verified supplier trust ratings.
+- **1-Click Accept**: Atomically accepts the winning quote, generates an active order, and gracefully rejects competing bids.
+- **Lifecycle Tracking**: 6-stage order tracking (`Requirement Accepted` ➔ `Confirmed` ➔ `Processing` ➔ `Packed` ➔ `Shipped` ➔ `Delivered`).
+- **Review Submission**: Rate vendor quality and leave verified feedback after delivery.
 
-### 2. 🏢 Vendor Experience
-- **Opportunity Discovery**: Filter open RFP requirements by category, location, and budget.
-- **Bid Submission**: Submit competitive quotes with delivery guarantees and warranty terms.
-- **Catalog Management**: Add, update, and manage off-the-shelf product listings.
-- **Fulfillment Stepper**: Advance order stages as production and shipping progress.
+### 2. Supplier / Vendor Flow
+- **Opportunity Discovery**: Browse real-time buyer demands filtered by category, budget threshold, and geographic location.
+- **Quote Submission**: Submit granular bids including unit pricing, total cost, estimated turnaround days, and technical notes.
+- **Order Advancement**: Step accepted orders forward through the 6-stage fulfillment workflow with live timestamps.
+- **Trust Profile**: Gain verified badges and accumulate 5-star ratings to earn priority visibility.
 
-### 3. 🛡️ Admin Oversight
-- **System Metrics**: Real-time Gross Merchandise Value (GMV), user counts, and platform activity.
-- **User Moderation**: Verify vendor credentials and toggle verified badge status.
-- **Order Audit**: Inspect complete order histories, audit logs, and delivery statuses.
-
----
-
-## 🏗️ Architecture & Tech Stack
-
-### Full-Stack Architecture Diagram
-
-```mermaid
-graph TD
-    subgraph Frontend [React 19 + TypeScript + Vite + Tailwind v4]
-        UI[UI Views & Pages]
-        Zustand[Zustand Stores with API Sync]
-        APIClient[Axios API Client + JWT Interceptor]
-    end
-
-    subgraph Backend [Node.js + Express.js API]
-        Routes[API Routes: /api/auth, /api/requirements, /api/offers, etc.]
-        AuthMid[JWT Authenticate & RBAC Authorize Middleware]
-        Controllers[Business Logic Controllers]
-        Mongoose[Mongoose Schemas & Models]
-    end
-
-    subgraph Database [MongoDB]
-        Users[(Users Collection)]
-        Requirements[(Requirements Collection)]
-        Offers[(Offers Collection)]
-        Orders[(Orders Collection)]
-        Products[(Products Collection)]
-        Categories[(Categories Collection)]
-        Reviews[(Reviews Collection)]
-    end
-
-    UI --> Zustand
-    Zustand --> APIClient
-    APIClient -->|HTTP REST + Bearer Token| Routes
-    Routes --> AuthMid
-    AuthMid --> Controllers
-    Controllers --> Mongoose
-    Mongoose --> Database
-```
-
-### Directory Structure
-
-```
-Full-stack/
-├── backend/                       # Express.js & MongoDB Backend
-│   ├── server.js                  # Server entrypoint with graceful shutdown
-│   ├── package.json               # Backend dependencies & scripts
-│   ├── .env.example               # Template environment variables
-│   ├── src/
-│   │   ├── app.js                 # Express app configuration & middleware
-│   │   ├── config/
-│   │   │   └── database.js        # Mongoose connection & error listeners
-│   │   ├── models/
-│   │   │   ├── User.js            # User model with bcrypt password hashing
-│   │   │   ├── Category.js        # Product & RFP categories
-│   │   │   ├── Requirement.js     # Reverse RFP customer requirements
-│   │   │   ├── Offer.js           # Vendor quotations & badges
-│   │   │   ├── Order.js           # Orders with 6-stage timeline
-│   │   │   ├── Product.js         # Direct ecommerce catalog products
-│   │   │   └── Review.js          # Delivered order reviews
-│   │   ├── middleware/
-│   │   │   ├── authenticate.js    # JWT Bearer token validation
-│   │   │   ├── authorize.js       # Role-based access control (RBAC)
-│   │   │   └── errorHandler.js    # Centralized error handler
-│   │   ├── controllers/           # Endpoint business logic
-│   │   │   ├── authController.js
-│   │   │   ├── requirementsController.js
-│   │   │   ├── offersController.js
-│   │   │   ├── ordersController.js
-│   │   │   ├── productsController.js
-│   │   │   ├── categoriesController.js
-│   │   │   ├── reviewsController.js
-│   │   └── seed/
-│   │       ├── seed.js            # Idempotent database seeder
-│   │       └── seedData.json      # Structured JSON seed records
-│   └── tests/                     # Automated Jest test suites
-│       ├── auth.test.js           # Auth & security tests
-│       ├── marketplace.test.js    # Complete end-to-end flow test
-│       └── mockDb.js              # In-memory test driver
-├── src/                           # Frontend (React 19 + TypeScript)
-│   ├── components/                # UI, Layout, Shared domain components
-│   ├── pages/                     # Public, Auth, Customer, Vendor, Admin
-│   ├── services/api/              # Abstracted Axios API client
-│   ├── stores/                    # Zustand persistent stores with API sync
-│   └── types/                     # TypeScript domain interfaces
-├── index.html                     # HTML5 root with SEO meta tags
-├── vite.config.ts                 # Vite bundler config with /api proxy
-├── package.json                   # Root package & orchestration scripts
-└── README.md                      # Comprehensive project documentation
-```
-
-### Database Schemas & Mongoose Models
-
-1. **User**: `name`, `email` (unique), `passwordHash`, `role` (`customer` | `vendor` | `admin`), `companyName`, `avatar`, `verified`, `location`, `isActive`.
-2. **Requirement**: `customId` (`REQ-xxxx`), `customerId`, `customerName`, `title`, `category`, `description`, `quantity`, `unit`, `minBudget`, `maxBudget`, `location`, `deadline`, `status` (`open` | `closed` | `fulfilled` | `cancelled`), `offersCount`, `specifications`.
-3. **Offer**: `customId` (`OFF-xxxx`), `requirementId`, `vendorId`, `vendorName`, `vendorRating`, `vendorTrustScore`, `price`, `deliveryDays`, `warranty`, `includedServices`, `matchScore`, `badges`, `status` (`pending` | `accepted` | `rejected`).
-4. **Order**: `customId` (`ORD-xxxx`), `requirementId`, `offerId`, `customerId`, `vendorId`, `title`, `totalAmount`, `status` (`requirement_accepted` | `confirmed` | `processing` | `packed` | `shipped` | `delivered`), `expectedDelivery`, `timeline`.
-5. **Product**: `customId` (`PRD-xxxx`), `vendorId`, `title`, `category`, `price`, `stock`, `rating`, `imageUrl`, `description`, `isActive`.
-6. **Category**: `name`, `slug` (unique), `description`, `isActive`.
-7. **Review**: `orderId` (unique), `customerId`, `vendorId`, `rating` (1-5), `comment`.
+### 3. Platform Administrator
+- **Executive Metrics**: Live GMV (Gross Merchandise Value), active orders, platform revenue, and user analytics.
+- **User Governance**: View complete user directory with 1-click verification badge management.
+- **Marketplace Moderation**: Audit posted requirements, inspect vendor quotes, and view order fulfillment progress.
 
 ---
 
-## 🚀 Getting Started
+## 🔑 Demo Accounts & Credentials
 
-### Prerequisites
+The platform includes **1-click Instant Demo Login buttons** in the navbar, or you can log in manually:
 
-Ensure you have installed:
-- **Node.js**: v18.0.0 or higher (v20+ recommended)
-- **npm**: v9.0.0 or higher
-- **MongoDB**: MongoDB Atlas cluster URI or local MongoDB daemon running on `mongodb://127.0.0.1:27017`
+| Role | Name | Email | Password | Pre-seeded Access |
+| :--- | :--- | :--- | :--- | :--- |
+| **Buyer** | Saad Ahmed | `customer@example.com` | `password123` | Active requirements, live quote comparisons, orders |
+| **Vendor** | PrintHub Solutions | `vendor@example.com` | `password123` | Open RFPs, quote submissions, active fulfillment orders |
+| **Vendor** | TechCraft Supplies | `vendor2@example.com` | `password123` | Competitive bidding and supplier profile |
+| **Admin** | Admin Supervisor | `admin@example.com` | `password123` | Full dashboard, user verification, order audit controls |
 
-### Environment Variables
+*Passwords are securely hashed using **bcrypt (salt factor 10)** in MongoDB Atlas.*
 
-#### Backend Configuration (`backend/.env`):
-Create `backend/.env` based on `backend/.env.example`:
+---
+
+## 🏗️ Full-Stack System Architecture
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                        CLIENT / FRONTEND (Vercel)                      │
+│                                                                        │
+│   React 19 • TypeScript 5.7 • Vite 6.1 • Tailwind CSS v4 • Zustand 5   │
+│   Framer Motion • Lucide Icons • Axios Dynamic API Client              │
+└────────────────────────────────────┬───────────────────────────────────┘
+                                     │ HTTPS / REST (JWT Bearer Auth)
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                        API SERVER (Render)                             │
+│                                                                        │
+│   Node.js • Express 4.21 • Helmet Security • Rate Limiting • Morgan    │
+│   Auth & RBAC Middleware • Controllers • Error Handling Pipeline       │
+└────────────────────────────────────┬───────────────────────────────────┘
+                                     │ Mongoose 8.10 (Direct ReplicaSet)
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                     DATABASE (MongoDB Atlas Cloud)                     │
+│                                                                        │
+│   AWS AP_South_1 • 3-Node Replica Set • Encrypted Storage at Rest      │
+│   Collections: users, requirements, offers, orders, categories, reviews│
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 Database Models & Schemas
+
+| Collection | Schema Highlights | Key Relationships |
+| :--- | :--- | :--- |
+| **`users`** | `customId`, `name`, `email`, `passwordHash`, `role`, `companyName`, `verified`, `avatar` | Parent to requirements, offers, and orders |
+| **`categories`** | `name`, `slug`, `description`, `icon`, `isActive` | Categorizes requirements and products |
+| **`requirements`** | `customId`, `customerId`, `title`, `category`, `quantity`, `maxBudget`, `status`, `offersCount` | 1-to-Many with Offers; 1-to-1 with winning Order |
+| **`offers`** | `customId`, `requirementId`, `vendorId`, `price`, `deliveryDays`, `status` (`pending`/`accepted`/`rejected`) | Belongs to Requirement & Vendor |
+| **`orders`** | `customId`, `requirementId`, `offerId`, `customerId`, `vendorId`, `totalAmount`, `status`, `timeline[]` | Holds 6-stage lifecycle tracking items |
+| **`products`** | `customId`, `vendorId`, `title`, `price`, `category`, `stock`, `badges[]` | Catalog merchandise for standard purchases |
+| **`reviews`** | `orderId`, `customerId`, `vendorId`, `rating`, `comment` | Post-fulfillment verified rating |
+
+---
+
+## 💻 Terminal Database Inspection CLI
+
+You can query your live **MongoDB Atlas** cluster directly from your terminal using custom built-in commands:
+
+```powershell
+# View formatted ASCII summary tables of ALL collections in Atlas:
+npm run db:all
+
+# View all live registered Customers, Vendors, and Admins:
+npm run db:users
+
+# View all posted Buyer Requirements:
+npm run db:reqs
+
+# View all Vendor Bids and Quotations:
+npm run db:offers
+
+# View all active and fulfilled Orders:
+npm run db:orders
+```
+
+---
+
+## 🚀 Local Development Setup
+
+### 1. Prerequisites
+- **Node.js** v18+ installed
+- **Git** installed
+- **MongoDB Atlas** account (or local MongoDB on port 27017)
+
+### 2. Clone & Install Dependencies
+```powershell
+git clone https://github.com/saad-affan12/Reverely-marketplace.git
+cd Reverely-marketplace
+
+# Install frontend dependencies
+npm install
+
+# Install backend dependencies
+npm --prefix backend install
+```
+
+### 3. Configure Environment Variables
+
+**Backend (`backend/.env`):**
 ```env
 PORT=5000
 NODE_ENV=development
-MONGODB_URI=mongodb://127.0.0.1:27017/reversely
-JWT_SECRET=your_jwt_secret_key_reversely_2026
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=super_secret_reversely_jwt_key_2026_dev
 CLIENT_URL=http://localhost:5173
 ```
 
-#### Frontend Configuration (`.env.local` or environment):
+**Frontend (`.env` or `.env.local` - optional for dev):**
 ```env
-VITE_API_BASE_URL=http://localhost:5000/api
+# Leave empty in local dev: Vite automatically proxies /api to http://localhost:5000
+VITE_API_BASE_URL=
 ```
-*(Leave empty to automatically use relative `/api` via Vite dev proxy).*
 
-### Database Seeding
-
-To populate MongoDB with initial demo accounts, categories, requirements, offers, products, and orders:
-```bash
-# From workspace root:
+### 4. Seed the Database
+Populates MongoDB Atlas with 7 categories, 4 demo users, 7 requirements, 6 offers, 2 orders, and 8 products:
+```powershell
 npm run server:seed
-
-# Or from backend directory:
-cd backend
-npm run seed
 ```
 
-### Running the Application
-
-In development, start the backend and frontend:
-
-1. **Terminal 1: Start Backend API**
-   ```bash
-   npm run server:dev
-   # Runs on http://localhost:5000
-   # Health check at http://localhost:5000/api/health
-   ```
-
-2. **Terminal 2: Start Frontend**
-   ```bash
-   npm run dev
-   # Runs on http://localhost:5173
-   ```
-
----
-
-## 🔑 Demo Accounts & Authentication
-
-The login screen (`/login`) includes **1-Click Instant Demo Login Cards**:
-
-| Role | Email | Password | Persona / Company | Capabilities |
-|---|---|---|---|---|
-| **Customer** | `customer@example.com` | `password123` | Saad Ahmed (Apex Innovations) | Post requirements, compare offers, accept bids, track orders |
-| **Vendor** | `vendor@example.com` | `password123` | PrintHub Solutions | Bid on RFPs, manage catalog, advance fulfillment stages |
-| **Vendor 2** | `vendor2@example.com` | `password123` | TechCraft Enterprises | Compete on RFPs, view assigned orders |
-| **Admin** | `admin@example.com` | `password123` | Admin Supervisor | Global stats, user verification, order monitoring |
+### 5. Start Frontend & Backend with ONE Command
+```powershell
+npm run dev:all
+```
+- **Backend API**: `http://localhost:5000`
+- **Frontend App**: `http://localhost:5173` (or `http://localhost:3001`)
 
 ---
 
 ## 📡 API Endpoint Reference
 
-### Authentication
-- `POST /api/auth/register` - Register a customer or vendor (admin registration forbidden).
-- `POST /api/auth/login` - Login with email and password, returns JWT token.
-- `POST /api/auth/demo-login` - 1-Click developer demo login.
-- `GET /api/auth/me` - Get current authenticated user profile (`Bearer <token>`).
+### Authentication & Profiles
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Public | Register customer or vendor (Admin restricted) |
+| `POST` | `/api/auth/login` | Public | Authenticate and obtain JWT token |
+| `POST` | `/api/auth/demo-login` | Public | Instant 1-click test login by role |
+| `GET` | `/api/auth/me` | Authenticated | Retrieve current user profile |
 
-### Requirements (Reverse Marketplace RFPs)
-- `GET /api/requirements` - List requirements (supports `search`, `category`, `status`, `customerId`).
-- `GET /api/requirements/:id` - Get requirement details with live offer counts.
-- `POST /api/requirements` - Post a new requirement (*Customer only*).
-- `PATCH /api/requirements/:id/status` - Update requirement status (*Owner or Admin*).
-- `DELETE /api/requirements/:id` - Cancel requirement (*Owner or Admin*).
+### Requirements (Buyer RFPs)
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/requirements` | Public | List requirements with search, category & status filters |
+| `GET` | `/api/requirements/:id` | Public | Retrieve single requirement and metadata |
+| `POST` | `/api/requirements` | Customer | Create a new procurement request |
+| `PATCH` | `/api/requirements/:id/status`| Customer/Admin | Update status (`open`, `closed`, `fulfilled`) |
 
-### Offers (Vendor Quotations)
-- `GET /api/requirements/:id/offers` - Get all quotations submitted for a requirement.
-- `POST /api/requirements/:id/offers` - Submit a quotation (*Vendor only*).
-- `GET /api/offers` - List vendor's own offers or all offers (*Vendor/Admin*).
-- `GET /api/offers/:id` - Get specific quotation details.
-- `POST /api/offers/:id/accept` - **Accept an offer**: atomically marks offer as `accepted`, rejects competing bids, sets requirement to `fulfilled`, and creates an `Order` (*Customer owner only*).
+### Offers & Bids
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/offers/requirement/:id`| Authenticated | Get all competing quotes for an RFP |
+| `POST` | `/api/offers` | Vendor | Submit quote with price and delivery timetable |
+| `POST` | `/api/offers/:id/accept` | Customer | **Atomically accept quote & generate order** |
 
-### Orders & Tracking
-- `GET /api/orders` - Role-filtered orders list (customers see purchases, vendors see assigned jobs).
-- `GET /api/orders/:id` - View order details and 6-stage timeline stepper.
-- `PATCH /api/orders/:id/status` - Advance order lifecycle stage (*Assigned Vendor or Admin*).
-
-### Products (Direct Catalog)
-- `GET /api/products` - List products with search and category filtering.
-- `GET /api/products/:id` - Single product details.
-- `POST /api/products` - Create new product listing (*Vendor only*).
-- `PATCH /api/products/:id` - Edit product listing (*Owner Vendor only*).
-- `DELETE /api/products/:id` - Remove product (*Owner Vendor only*).
-
-### Categories & Reviews
-- `GET /api/categories` - List active marketplace categories.
-- `GET /api/reviews/vendor/:id` - Get vendor reviews.
-- `POST /api/reviews/order/:id` - Submit review for completed/delivered order (*Customer only*).
+### Orders & Fulfillment Tracking
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/orders` | Authenticated | Get role-scoped orders for customer/vendor |
+| `GET` | `/api/orders/:id` | Authenticated | Retrieve order details & 6-stage timeline |
+| `PATCH` | `/api/orders/:id/status` | Vendor/Admin | Advance order stage (`confirmed` ➔ `delivered`) |
 
 ### Admin Oversight
-- `GET /api/admin/stats` - Platform aggregated statistics (GMV, user counts, order counts).
-- `GET /api/admin/users` - Search and filter users by role and verification status.
-- `PATCH /api/admin/users/:id/verify` - Toggle user verified badge.
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/admin/stats` | Admin | Overall GMV, revenue, and entity counters |
+| `GET` | `/api/admin/users` | Admin | Directory of all registered users with filters |
+| `PATCH` | `/api/admin/users/:id/verify` | Admin | Grant or revoke verified supplier status |
 
 ### Health Check
-- `GET /api/health` - Service status, database connection state, and uptime.
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/health` | Public | Uptime status, timestamp & service verification |
 
 ---
 
 ## 🧪 Testing & Quality Assurance
 
-The backend includes comprehensive automated integration test suites executed with Jest:
-```bash
-# Run tests from workspace root:
-npm run test:backend
+Automated integration tests validate the complete marketplace lifecycle:
 
-# Or from backend directory:
-cd backend
-npm test
+```powershell
+npm run test:backend
 ```
 
-### Verified Scenarios:
-- ✅ Customer and vendor registration, password hashing with bcrypt, duplicate email rejection.
-- ✅ Unauthorized public admin creation prevention.
-- ✅ JWT Bearer token authentication and `/api/auth/me` profile retrieval.
-- ✅ The complete essential integration scenario:
-  1. Customer posts requirement for 100 T-shirts (Budget ₹30,000).
-  2. Vendor A submits offer (₹27,500, 4 days).
-  3. Vendor B submits offer (₹25,900, 6 days).
-  4. Customer compares both bids and accepts Vendor A.
-  5. Backend atomically creates Order linked to Vendor A, marks requirement as fulfilled, and marks Vendor B's bid as rejected.
-  6. Double acceptance prevention enforced with HTTP 400.
-  7. Vendor A advances order through `processing` ➔ `delivered`.
-  8. Customer reviews delivered order.
-  9. Health endpoint verifies healthy status.
+**Test Coverage Highlights:**
+- ✅ **Authentication**: Registration validation, duplicate email prevention, admin creation restriction, JWT generation.
+- ✅ **Atomic Order Acceptance**: Acceptance marks winning bid `ACCEPTED`, marks competing bids `REJECTED`, marks requirement `FULFILLED`, and generates order.
+- ✅ **Double Acceptance Guard**: Rejects subsequent attempts to accept an already-fulfilled requirement with HTTP 400.
+- ✅ **Fulfillment Progress**: Step-by-step advancement through `processing` ➔ `shipped` ➔ `delivered`.
 
 ---
 
-## 🚢 Deployment Guide
+## ☁️ Cloud Deployment Configuration
 
-### Backend Deployment (Render / Railway / DigitalOcean)
-1. Push repository to GitHub.
-2. In your cloud provider (e.g. Render), create a new **Web Service**:
-   - **Root Directory**: `backend`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-3. Configure Environment Variables:
-   - `NODE_ENV`: `production`
-   - `PORT`: `5000` (or provider's default `$PORT`)
-   - `MONGODB_URI`: Your MongoDB Atlas connection string (`mongodb+srv://...`)
-   - `JWT_SECRET`: Secure random secret key
-   - `CLIENT_URL`: Your deployed frontend URL (e.g. `https://reversely-marketplace.vercel.app`)
-4. Verify backend health endpoint:
-   ```bash
-   curl https://your-backend-service.onrender.com/api/health
-   ```
+### Frontend (Vercel)
+- **Framework Preset**: `Vite`
+- **Root Directory**: `./`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Environment Variables**:
+  - `VITE_API_BASE_URL`: `https://reverely-marketplace.onrender.com`
+- **SPA Rewrite Rule ([vercel.json](vercel.json))**: Configured so deep page refreshes never return 404.
 
-### Vercel Frontend Configuration
-1. Open your Vercel project dashboard for `Reverely-marketplace`.
-2. Under **Settings ➔ Environment Variables**, add:
-   - `VITE_API_BASE_URL`: `https://your-backend-service.onrender.com/api`
-3. Trigger a redeployment.
-4. The deployed frontend will now make live API requests to your cloud backend with real MongoDB persistence.
+### Backend (Render)
+- **Runtime**: `Node.js`
+- **Root Directory**: `backend`
+- **Build Command**: `npm install`
+- **Start Command**: `npm start`
+- **Environment Variables**:
+  - `NODE_ENV`: `production`
+  - `MONGODB_URI`: Atlas connection string
+  - `JWT_SECRET`: 64-character signing key
+  - `CLIENT_URL`: `*` (or your Vercel URL)
 
 ---
 
-## 🎨 Design System & Aesthetics
+## 🎨 Design System & Dark Tech Aesthetics
 
-Reversely is styled with a distinct, premium **Dark Tech SaaS** visual language:
+Reversely is engineered with a bespoke, futuristic **Dark Tech SaaS** visual language:
 
-- **Canvas & Backgrounds**: Deep Void (`#050816`), Slate Obsidian (`#0B0F19`), and Navy Charcoal (`#111827`).
-- **Primary Accents**: Vivid Electric Indigo (`#5B37F5` / `#6366F1`) and Sky Cyan (`#48CBFF`).
-- **Status Indicators**:
-  - Emerald (`#2BD696`): Accepted offers, delivered orders, verified suppliers.
-  - Amber (`#FAB505`): Pending reviews, processing orders.
-  - Crimson (`#FF5677`): Rejected quotes, cancelled requirements.
-- **Typography**: Space Grotesk, Instrument Serif, and Plus Jakarta Sans.
-- **Interactions**: Smooth framer-motion page transitions and interactive hover micro-animations.
-
----
-
-## 🗺️ Limitations & Future Roadmap
-
-- **Escrow Payment Gateway**: Direct integration with Razorpay / Stripe for advance deposits and milestone releases.
-- **Real-Time WebSockets**: Live bid notifications using Socket.io during active RFP rounds.
-- **Direct Buyer-Seller Chat**: In-app encrypted messaging for specification clarifications prior to quote acceptance.
+- **Surface Palettes**: Deep Void (`#050816`), Slate Obsidian (`#0B0F19`), and Navy Charcoal (`#111827`).
+- **Accent Radiance**: Electric Indigo (`#5B37F5` / `#6366F1`) and Sky Cyan (`#48CBFF`).
+- **Semantic Badges**:
+  - 🟢 **Emerald (`#2BD696`)**: Fulfilled requirements, accepted bids, verified suppliers.
+  - 🟡 **Amber (`#FAB505`)**: Open bids, pending quotes, in-transit orders.
+  - 🔴 **Crimson (`#FF5677`)**: Rejected quotes, closed requirements.
+- **Typography**: Space Grotesk, Plus Jakarta Sans, and Instrument Serif.
+- **Micro-Interactions**: Framer-motion transitions, subtle glow borders, and optimistic UI updates.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 <div align="center">
 
-Crafted with ❤️ for modern procurement and seamless multi-vendor commerce.
+**Built with precision for modern enterprise procurement and multi-vendor commerce.**
+
+⭐ If you found this project helpful, give it a star on [GitHub](https://github.com/saad-affan12/Reverely-marketplace)!
 
 </div>
