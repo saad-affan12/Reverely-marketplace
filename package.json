@@ -16,6 +16,11 @@
     "db:offers": "node backend/src/scripts/showData.js offers",
     "db:orders": "node backend/src/scripts/showData.js orders",
     "db:all": "node backend/src/scripts/showData.js all",
+    "db:stats": "node backend/src/scripts/queryDb.js stats",
+    "db:today": "node backend/src/scripts/queryDb.js today",
+    "db:date": "node backend/src/scripts/queryDb.js date",
+    "db:role": "node backend/src/scripts/queryDb.js role",
+    "db:status": "node backend/src/scripts/queryDb.js status",
     "test:backend": "npm --prefix backend test"
   },
   "dependencies": {
