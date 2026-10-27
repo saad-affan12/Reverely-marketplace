@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Reversely Banner](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80)
+![Reversely Banner](https://github.com/saad-affan12/Reverely-marketplace/blob/main/src/components/Screenshot%202026-10-27%20200446.png)
 
 [![Live Frontend](https://img.shields.io/badge/Frontend-Live_on_Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://reversely-marketplace.vercel.app)
 [![Live Backend](https://img.shields.io/badge/Backend-Live_on_Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://reverely-marketplace.onrender.com)
